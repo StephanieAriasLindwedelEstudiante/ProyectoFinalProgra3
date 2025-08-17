@@ -218,6 +218,10 @@
       <DependentUpon>login.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="MODELS\Citas.vb" />
+    <Compile Include="MODELS\Medicos.vb" />
+    <Compile Include="MODELS\Pacientes.vb" />
+    <Compile Include="MODELS\Usuarios.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
