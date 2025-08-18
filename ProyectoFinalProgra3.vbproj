@@ -141,9 +141,11 @@
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Doctores.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="login.aspx" />
+    <Content Include="Pacientes.aspx" />
     <Content Include="Registrar.aspx" />
     <Content Include="Registro.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -208,6 +210,13 @@
     <Compile Include="App_Start\BundleConfig.vb" />
     <Compile Include="App_Start\RouteConfig.vb" />
     <Compile Include="DAL\DatabaseHelper.vb" />
+    <Compile Include="Doctores.aspx.designer.vb">
+      <DependentUpon>Doctores.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Doctores.aspx.vb">
+      <DependentUpon>Doctores.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="Global.asax.vb">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -240,6 +249,13 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Pacientes.aspx.designer.vb">
+      <DependentUpon>Pacientes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pacientes.aspx.vb">
+      <DependentUpon>Pacientes.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Registrar.aspx.designer.vb">
       <DependentUpon>Registrar.aspx</DependentUpon>

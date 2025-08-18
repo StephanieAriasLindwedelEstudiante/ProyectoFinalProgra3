@@ -5,8 +5,8 @@
             <h1 class="h3 mb-3 fw-bold" style="font-family:'Times New Roman'; font-size:x-large; color: darkblue">Iniciar sesión</h1>
 
             <div class="form-floating mb-3">
-                <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control" TextMode="SingleLine" placeholder="NombreUsuario"></asp:TextBox>
-                <label for="txtNombreUsuario">Correo</label>
+                <asp:TextBox ID="txtNombreUsuario" runat="server" CssClass="form-control" TextMode="SingleLine" placeholder="NombreUsuario"></asp:TextBox>
+                <label for="txtNombreUsuario">Nombre de Usuario</label>
             </div>
 
             <div class="form-floating mb-3">
