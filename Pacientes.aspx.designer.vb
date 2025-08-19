@@ -23,6 +23,15 @@ Partial Public Class Pacientes1
     Protected WithEvents PacienteID As Global.System.Web.UI.WebControls.HiddenField
 
     '''<summary>
+    '''Control CitaID.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents CitaID As Global.System.Web.UI.WebControls.HiddenField
+
+    '''<summary>
     '''Control ddlDoctores.
     '''</summary>
     '''<remarks>

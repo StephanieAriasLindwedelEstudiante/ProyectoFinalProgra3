@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Site.Master" CodeBehind="Pacientes.aspx.vb" Inherits="ProyectoFinalProgra3.Pacientes1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <asp:HiddenField ID="PacienteID" runat="server" />
-
+    <asp:HiddenField ID="CitaID" runat="server" />
     <div class="row mb-3">
 
         <div class="col-md-6">
@@ -32,19 +32,27 @@
         </div>
     </div>
 
-    <!-- GridView mostrando las citas del paciente -->
-    <asp:GridView ID="gvCitas" runat="server" AllowPaging="True"
-        AutoGenerateColumns="False" DataKeyNames="CitaID"
-        CssClass="table table-bordered table-striped"
-        OnSelectedIndexChanged="gvCitas_SelectedIndexChanged">
-        <Columns>
-            <asp:CommandField ShowSelectButton="True" />
-            <asp:BoundField DataField="DoctorNombre" HeaderText="Nombre Doctor" ReadOnly="True" />
-            <asp:BoundField DataField="DoctorApellido" HeaderText="Apellido Doctor" ReadOnly="True" />
-            <asp:BoundField DataField="Especialidad" HeaderText="Especialidad" ReadOnly="True" />
-            <asp:BoundField DataField="Fecha" HeaderText="Fecha" DataFormatString="{0:yyyy-MM-dd}" />
-            <asp:BoundField DataField="Hora" HeaderText="Hora" DataFormatString="{0:hh\\:mm}" />
-            <asp:BoundField DataField="Estado" HeaderText="Estado" />
-        </Columns>
-    </asp:GridView>
+<asp:GridView ID="gvCitas" runat="server" AllowPaging="True"
+    AutoGenerateColumns="False" DataKeyNames="CitaID,Estado"
+    CssClass="table table-bordered table-striped"
+    OnSelectedIndexChanged="gvCitas_SelectedIndexChanged">
+
+    <Columns>
+        <asp:CommandField ShowSelectButton="True" />
+        <asp:BoundField DataField="DoctorNombre" HeaderText="Nombre Doctor" ReadOnly="True" />
+        <asp:BoundField DataField="DoctorApellido" HeaderText="Apellido Doctor" ReadOnly="True" />
+        <asp:BoundField DataField="Especialidad" HeaderText="Especialidad" ReadOnly="True" />
+        <asp:BoundField DataField="Fecha" HeaderText="Fecha" DataFormatString="{0:yyyy-MM-dd}" />
+        <asp:TemplateField HeaderText="Hora">
+            <ItemTemplate>
+                <%# TimeSpan.Parse(Eval("Hora").ToString()).ToString("hh\:mm") %>
+            </ItemTemplate>
+        </asp:TemplateField>
+        <asp:TemplateField HeaderText="Estado">
+            <ItemTemplate>
+                <%# Eval("Estado").ToString() %>
+            </ItemTemplate>
+        </asp:TemplateField>
+    </Columns>
+</asp:GridView>
 </asp:Content>
