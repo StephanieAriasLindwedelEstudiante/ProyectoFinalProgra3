@@ -63,12 +63,15 @@ Public Class Registro
                 True)
             Return
         End If
+        Dim clave As String = txtPass.Text.Trim()
+        Dim wrapper As New Simple3Des("Encriptacion123")
+        Dim passEncriptada As String = wrapper.EncryptData(clave)
         Dim usuarioNuevo As New Usuarios() With {
                 .NombreUsuario = txtNombreUsuario.Text.Trim(),
-                .PasswordHash = txtPass.Text.Trim(),
+                .PasswordHash = passEncriptada,
                 .RolID = 1 ' Rol de médico
             }
-            Dim pacienteNuevo As New Pacientes() With {
+        Dim pacienteNuevo As New Pacientes() With {
                 .Nombre = txtNombre.Text.Trim(),
                 .Apellidos = txtApellido.Text.Trim(),
                 .FechaNacimiento = DateTime.Parse(txtFecha_Nacimiento.Text.Trim()),

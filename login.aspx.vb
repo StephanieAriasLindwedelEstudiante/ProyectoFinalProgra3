@@ -4,6 +4,12 @@ Public Class login
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        If Not IsPostBack Then
+            If Request.Cookies("UsuarioRecordado") IsNot Nothing Then
+                txtNombreUsuario.Text = Request.Cookies("UsuarioRecordado").Value
+                chkRecordar.Checked = True
+            End If
+        End If
         If Not Session("UsuarioID") Is Nothing Then
             Dim rol As String = Session("UsuarioRol")?.ToString()
             If rol = "1" Then
@@ -16,9 +22,11 @@ Public Class login
     Protected Function verificarUsuario(usuario As Usuarios) As Usuarios
         Try
             Dim helper As New DatabaseHelper()
+            Dim wrapper As New Simple3Des("Encriptacion123")
+            Dim passEncriptada As String = wrapper.EncryptData(usuario.PasswordHash)
             Dim parametros As New List(Of SqlParameter) From {
                 New SqlParameter("@NombreUsuario", usuario.NombreUsuario),
-                New SqlParameter("@PasswordHash", usuario.PasswordHash)
+                New SqlParameter("@PasswordHash", passEncriptada)
             }
             Dim query As String = "SELECT * FROM Usuarios WHERE NombreUsuario = @NombreUsuario AND PasswordHash = @PasswordHash"
             Dim dataTable As DataTable = helper.ExecuteQuery(query, parametros)
@@ -36,6 +44,19 @@ Public Class login
         End Try
     End Function
     Protected Sub btnLogin_Click(sender As Object, e As EventArgs)
+        Dim usuario As String = txtNombreUsuario.Text.Trim()
+        If chkRecordar.Checked Then
+            Dim cookie As New HttpCookie("UsuarioRecordado")
+            cookie.Value = usuario
+            cookie.Expires = DateTime.Now.AddDays(7)
+            Response.Cookies.Add(cookie)
+        Else
+            If Request.Cookies("UsuarioRecordado") IsNot Nothing Then
+                Dim cookie As New HttpCookie("UsuarioRecordado")
+                cookie.Expires = DateTime.Now.AddDays(-1)
+                Response.Cookies.Add(cookie)
+            End If
+        End If
         lblError.Visible = False
         Dim usuarioIn As New Usuarios() With {
             .NombreUsuario = txtNombreUsuario.Text.Trim(),

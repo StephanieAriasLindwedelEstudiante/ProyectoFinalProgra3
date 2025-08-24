@@ -15,8 +15,8 @@
             </div>
 
             <div class="form-check text-start mb-3">
-                <input class="form-check-input" type="checkbox" value="" id="chkRecordar">
-                <label class="form-check-label" for="chkRecordar" style="font-family:'Times New Roman'; font-size:larger; color: black">
+                <asp:CheckBox ID="chkRecordar" runat="server" CssClass="form-check-input" />
+                <label class="form-check-label" for="chkRecordar" style="font-family: 'Times New Roman'; font-size: larger; color: black">
                     Recordarme
                 </label>
             </div>

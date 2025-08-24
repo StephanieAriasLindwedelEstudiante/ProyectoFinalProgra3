@@ -210,6 +210,7 @@
     <Compile Include="App_Start\BundleConfig.vb" />
     <Compile Include="App_Start\RouteConfig.vb" />
     <Compile Include="DAL\DatabaseHelper.vb" />
+    <Compile Include="DAL\Simple3Des.vb" />
     <Compile Include="Doctores.aspx.designer.vb">
       <DependentUpon>Doctores.aspx</DependentUpon>
     </Compile>
