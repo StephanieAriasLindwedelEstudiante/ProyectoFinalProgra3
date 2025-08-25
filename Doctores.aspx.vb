@@ -63,11 +63,9 @@ Public Class Doctores
     Protected Sub btnActualizarEstado_Click(sender As Object, e As EventArgs)
 
     End Sub
-
     Protected Sub btnReprogramar_Click(sender As Object, e As EventArgs)
 
     End Sub
-
     Protected Sub gvCitas_SelectedIndexChanged(sender As Object, e As EventArgs)
 
     End Sub
