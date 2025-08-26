@@ -15,6 +15,7 @@
                     <asp:ListItem Text="Presente" Value="Presente"></asp:ListItem>
                     <asp:ListItem Text="Completada" Value="Completada"></asp:ListItem>
                     <asp:ListItem Text="Cancelada" Value="Cancelada"></asp:ListItem>
+                    <asp:ListItem Text="Duplicada" Value="Duplicada"></asp:ListItem>
                 </asp:DropDownList>
             </div>
 
