@@ -91,10 +91,12 @@ Public Class Doctores
                 CargarCitas()
             Else
                 ScriptManager.RegisterStartupScript(Me, Me.GetType(), "ErrorEstado", "Swal.fire('Error al actualizar el estado.');", True)
+                LimpiarFormulario()
             End If
         Catch ex As Exception
             lblMensaje.Text = "Error al actualizar el estado. " & ex.Message
             lblMensaje.ForeColor = Drawing.Color.Red
+            LimpiarFormulario()
         End Try
     End Sub
     Protected Sub btnReprogramar_Click(sender As Object, e As EventArgs)
@@ -122,10 +124,12 @@ Public Class Doctores
                 CargarCitas()
             Else
                 ScriptManager.RegisterStartupScript(Me, Me.GetType(), "ErrorReprogramar", "Swal.fire('Error al reprogramar la cita.');", True)
+                LimpiarFormulario()
             End If
         Catch ex As Exception
             lblMensaje.Text = "Error al reprogramar la cita. " & ex.Message
             lblMensaje.ForeColor = Drawing.Color.Red
+            LimpiarFormulario()
         End Try
     End Sub
     Protected Sub gvCitas_SelectedIndexChanged(sender As Object, e As EventArgs)
